@@ -1,277 +1,615 @@
-<!DOCTYPE html>
-<html lang="en">
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+html{
+  scroll-behavior: smooth;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+:root{
+  --intro-email-sign-up-bg: hsl(217, 28%, 15%);
+  --main-bg: hsl(218, 28%, 13%);
+  --footer-bg: hsl(216, 53%, 9%);
+  --test-bg: hsl(219, 30%, 18%);
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css">
+  --Cyan-call-action: hsl(176, 68%, 64%);
+  --Blue-call-action: hsl(198, 60%, 50%);
+  --Light-Red: hsl(0, 100%, 63%);
+  --light-green:hsl(150, 52%, 51%);
+  --light-white: rgba(255, 255, 255, 0.651);
 
+  --non-body-font: 'Raleway', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+}
 
-  <title>Fylo landing page</title>
+body{
+  height: 100vh;
+  font-family: var(--body-font);
+  font-size: 22px;
+}
 
-</head>
+header{
+  background-color: var(--intro-email-sign-up-bg);
+}
 
-<body>
-
-  <!-- ---------------- Logo + Nav Bar ------------------ -->
-
-  <header>
-    <div class="nav">
-      <div class="logo">
-        <img src="./images/logo.svg" alt="logo">
-      </div>
-      <div class="btns">
-        <ul>
-          <li><a href="#features">features</a></li>
-          <li><a href="#team">team</a></li>
-          <li><a href="#get-started">sign in</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
-
-  <!-- ---------------- Intro ------------------ -->
-
-  <section id="intro">
-    <div class="intro-container">
-
-      <div class="intro-img">
-        <img src="./images/illustration-intro.png" alt="head1">
-      </div>
-      <div class="intro-text">
-        <h1>All your files in one secure location, accessible anywhere.</h1>
-        <p>Fylo stores all your most important files in one secure location. Access them wherever
-          you need, share and collaborate with friends family, and co-workers.</p>
-      </div>
-      <div class="intro-btn">
-        <button class="btn">get started</button>
-      </div>
-    </div>
-
-  </section>
+.nav{
+  padding: 50px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
-  <!-- ---------------- Features ------------------ -->
+.btns ul{
+  display: flex;
+  list-style: none;
+}
 
-  <section id=features>
-    <div class="features-container">
+.btns ul li{
+  flex-grow: 1;
+  padding-left: 60px;
+}
 
-      <div class="feature-item">
-        <div class="feature-img">
-          <img src="./images/icon-access-anywhere.svg" alt="icon-access-anywhere">
-        </div>
-        <div class="feature-text">
-          <h2>Access your files, anywhere</h2>
-          <p>The ability to use a smartphone, tablet, or computer to access your account means your
-            files follow you everywhere.</p>
-        </div>
-      </div>
+.btns a{
+  text-decoration: none;
+  text-transform: capitalize;
+  color:var(--light-white) ;
+  font-size: 15px;
+  font-weight: 400;
+  transition: color 0.3s;
+}
 
-      <div class="feature-item">
-        <div class="feature-img">
-          <img src="./images/icon-security.svg" alt="icon-security">
-        </div>
-        <div class="feature-text">
-          <h2>Security you can trust</h2>
-          <p>2-factor authentication and user-controlled encryption are just a couple of the security
-            features we allow to help secure your files.</p>
-        </div>
-      </div>
-
-
-      <div class="feature-item">
-        <div class="feature-img">
-          <img src="./images/icon-collaboration.svg" alt="icon-collaboration">
-        </div>
-        <div class="feature-text">
-          <h2>Real-time collaboration</h2>
-          <p>Securely share files and folders with friends, family and colleagues for live collaboration.
-            No email attachments required.</p>
-        </div>
-      </div>
-
-      <div class="feature-item">
-        <div class="feature-img">
-          <img src="./images/icon-any-file.svg" alt="icon-any-file">
-        </div>
-        <div class="feature-text">
-          <h2>Store any type of file</h2>
-          <p>Whether you're sharing holidays photos or work documents, Fylo has you covered allowing for all
-            file types to be securely stored and shared.
-          </p>
-        </div>
-      </div>
-  </section>
+#intro{
+  background-color: var(--intro-email-sign-up-bg);
+  background-image: url(./images/bg-curvy-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
 
 
-  <!-- ---------------- Stay Productive ------------------ -->
+.intro-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 180px;
+}
 
-  <section id="productive">
-    <div class="prod-container">
-      <div class="prod-img-container">
-        <img src="./images/illustration-stay-productive.png" alt="stay-productive">
-      </div>
-      <div class="prod-text">
+.intro-img{
+  width: 47%;
+}
 
-        <h1>Stay productive, wherever you are</h1>
-        <p> Never let location be an issue when accessing your files. Fylo has you covered for all of your file
-          storage needs.
-          <br><br>
-          Securely share files and folders with friends, family and colleagues for live collaboration. No email
-          attachments required.
-        </p>
-        <div class="see-more">
-          <a href="#!">See how Fylo works</a>
-          <img src="./images/icon-arrow.svg" alt="icon-arrow">
-        </div>
-      </div>
-    </div>
-  </section>
+.intro-img img{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.intro-text{
+  text-align: center;
+  width: 700px;
+  padding-top: 50px;
+}
 
-  <!-- ---------------- Team ------------------ -->
+.intro-text h1{
+  color: white;
+  line-height: 55px;
+  font-family: var(--non-body-font);
+  font-size: 35px;
+}
 
-  <section id="team">
-    <div class="team-quotes">
-      <div class="quote">
-        <div class="quote-text">
-          <p> Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has
-            become a well-oiled collaboration machine.</p>
-        </div>
-        <div class="username">
-          <img src="./images/profile-1.jpg" alt="profile-1">
-          <p> Satish Patel <br>
-            <span>Founder & CEO, Huddle</span>
-          </p>
+.intro-text p{
+  color: rgba(255, 255, 255, 0.829);
+  font-size: 15px;
+  padding: 20px 120px;
+  line-height: 25px;
+}
 
-        </div>
-      </div>
+.intro-btn{
+  padding: 15px 0;
+}
 
+.btn{
+  padding: 15px 20px;
+  text-transform: capitalize;
+  background: linear-gradient(to right, var(--Cyan-call-action),var(--Blue-call-action));
+  color: rgba(255, 255, 255, 0.829);
+  border: none;
+  border-radius: 50px;
+  width: 210px;
+  font-weight: 700;
+  font-family: var(--non-body-font);
+  font-size: 13px;
+  transition: background 1s;
+}
 
-      <div class="quote">
-        <div class="quote-text">
-          <p> Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has
-            become a well-oiled collaboration machine.</p>
-        </div>
-        <div class="username">
-          <img src="./images/profile-2.jpg" alt="profile-2">
-          <p> Bruce McKenzie <br>
-            <span>Founder & CEO, Huddle</span>
-          </p>
+.btn:hover{
+  background: linear-gradient(to right, var(--Cyan-call-action),var(--Cyan-call-action));
+}
 
-        </div>
-      </div>
-
-
-      <div class="quote">
-        <div class="quote-text">
-          <p> Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has
-            become a well-oiled collaboration machine.</p>
-        </div>
-        <div class="username">
-          <img src="./images/profile-3.jpg" alt="profile-3">
-          <p>Iva Boyd <br>
-            <span>Founder & CEO, Huddle</span>
-          </p>
-        </div>
-      </div>
+#features{
+  background-color: var(--main-bg);
+}
 
 
+.features-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 80px;
+  padding: 0 200px 100px 200px;
 
-    </div>
-  </section>
+}
 
-  <!-- ---------------- Get Started ------------------ -->
-
-  <section id="get-started">
-    <div class="form">
-      <div class="text-started">
-        <h1>Get early access today</h1>
-        <p> It only takes a minute to sign up and our free starter tier is extremely generous. If you have any
-          questions, our support team would be happy to help you.</p>
-      </div>
-      <div class="email">
-        <input id="email-form" type="email" placeholder="email@exemple.com">
-        <button class="btn" id="send">Get Started For Free</button>
-      </div>
-      <p class="err hidden">Please enter a valid email adress</p>
-      <p class="success hidden">Thanks for joining us !</p>
-
-    </div>
-  </section>
-
-  <!-- ---------------- Footer ------------------ -->
-
-  <footer id="end">
-    <div class="footer-container">
-      <img src="images/logo.svg" alt="logo">
-      <div class="footer-text">
-        <div class="first">
-          <img src="./images/icon-location.svg" alt="icon-location">
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua</p>
-        </div>
-
-        <div class="second">
-          <div class="footer-item">
-            <img src="./images/icon-phone.svg" alt="phone">
-            <p>+1-543-123-4567</p>
-          </div>
-
-          <div class="footer-item">
-            <img src="./images/icon-email.svg" alt="email">
-            <p>example@fylo.com</p>
-          </div>
-        </div>
-
-        <div class="third">
-          <ul>
-            <li><a href="#!">about us</a></li>
-            <li><a href="#!">jobs</a></li>
-            <li><a href="#!">press</a></li>
-            <li><a href="#!">blog</a></li>
-          </ul>
-        </div>
-
-        <div class="third">
-          <ul>
-            <li><a href="#!">contact us</a></li>
-            <li><a href="#!">terms</a></li>
-            <li><a href="#!">privacy</a></li>
-          </ul>
-        </div>
-
-        <div class="fourth">
-          <i>
-            <ion-icon name="logo-facebook"></ion-icon>
-          </i>
-          <i>
-            <ion-icon name="logo-twitter"></ion-icon>
-          </i>
-          <i>
-            <ion-icon name="logo-instagram"></ion-icon>
-          </i>
-        </div>
-      </div>
-    </div>
-  </footer>
+.feature-item{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 
+}
 
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+.feature-img{
+  padding-bottom: 20px;
+}
+
+.feature-text h2{
+  color: rgba(255, 255, 255, 0.822);
+  font-size: 19px;
+  padding-bottom: 10px;
+}
+
+.feature-text p{
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  padding: 0 50px;
+  line-height: 20px;
+}
+
+#productive{
+  background-color: var(--main-bg);
+}
+
+.prod-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 100px;
+}
+
+.prod-text{
+  padding-left: 50px;
+}
+
+.prod-text h1{
+  color: rgba(255, 255, 255, 0.904);
+  font-family: var(--non-body-font);
+  font-size: 39px;
+  line-height: 50px;
+  padding-bottom: 20px;
+}
+
+.prod-text p{
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.699);
+  padding-bottom: 20px;
+}
+
+.see-more{
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+  border-bottom: var(--Cyan-call-action) 1px solid; 
+  width: 33%;    
+  transition: border-bottom 0.3s;
+}
+
+.see-more:hover{
+  border-bottom-color: white;
+}
+
+.see-more img{
+  position: relative;
+  bottom: -1.5px;
+  
+}
+
+.see-more a{
+  text-decoration: none;
+  color: var(--Cyan-call-action);
+  font-size: 15px;
+  padding-right: 5px;
+  transition: color 0.3s;
+}
+
+
+#team{
+  background-color: var(--main-bg);
+  background-image: url(images/bg-quotes.png);
+  background-repeat: no-repeat;
+  background-position: 110px 15px;
+}
+
+.team-quotes{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 50px 120px 300px 120px;
+  grid-gap: 40px;
+}
+
+.quote{
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background-color: var(--test-bg);
+  padding: 35px 20px 30px 20px;
+  border-radius: 3px;
+  box-shadow: 8px 8px 5px var(--intro-email-sign-up-bg);
+}
+
+.quote-text p{
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.747);
+  padding-bottom: 20px;
+
+}
+
+.username{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.username img{
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.username p {
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+}
+
+.username p span{
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.664);
+  letter-spacing: 0.5px;
+}
+
+
+#get-started{
+  background-color: var(--footer-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+}
+
+.form{
+  width: 61%;
+  padding: 40px 50px 20px 50px;
+  background-color: var(--intro-email-sign-up-bg);
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.096);
+  top: -120px;
+}
+
+.text-started{
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.text-started h1{
+  font-family: var(--non-body-font);
+  color: white;
+  padding-bottom: 20px;
+  font-size: 30px;
+}
+
+.text-started p{
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.685);
+  padding: 0 80px;
+}
+
+.email{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.email input {
+  width: 60%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 50px;
+  text-indent: 12px;
+}
+
+.email .btn{
+  margin-left: 30px;
+  width: 170px;
+}
+
+
+::placeholder{
+  font-family: var(--body-font);
+  color: rgba(0, 0, 0, 0.164);
+}
+
+#end{
+  background-color: var(--footer-bg);
+}
+
+.footer-container{
+  padding: 0 30px 70px 100px;
+}
+
+.footer-text{
+  display: grid;
+  grid-template-columns: 2fr 1fr auto auto 1fr;
+  grid-gap: 50px;
+  padding-top: 20px;
+}
+
+.first{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.first img{
+  margin-bottom: auto;
+  position: relative;
+  bottom: -7px;
+}
+
+.first p{
+  padding: 0 75px 0 25px;
+  color: rgba(255, 255, 255, 0.788);
+  font-size: 15px;
+}
+
+
+.footer-item{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 17px;
+}
+
+.footer-item p{
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.788);
+  padding-left: 25px;
+}
+
+.third{
+  display: flex;
+  justify-content: center;
+  top: -11px;
+  position: relative;
+}
+
+.third a{
+  text-decoration: none;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.788);
+  text-transform: capitalize;
+  transition: color 0.3s;
+}
+
+.third ul{
+  list-style: none;
+}
+
+.fourth{
+  display: flex;
+  justify-content: center;
+}
+
+.fourth i{
+  color: white;
+  padding: 0 10px;
+}
+
+a:hover{
+  color: white;
+}
+
+.hidden{
+  display: none;
+  visibility: hidden;
+}
+
+.err,.success{
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: -207px;
+  top: -15px;
+}
+
+.err{
+  color: var(--Light-Red);
+}
+
+.success{
+  color: var(--light-green);
+  font-size: 13px;
+}
+
+@media (max-width: 786px){
+
+  .logo img{
+      width: 100%;
+      height: 100%;
+  }
+
+  .logo{
+      width: 25%;
+  }
+
+  .btns ul{
+      align-items: center;
+      position: relative;
+      top: -5px;
+  }
+
+  .btns ul li{
+      padding: 0;
+      margin: 7px;
+  }
 
 
 
-</body>
+  .nav{
+      padding: 20px;
+      align-items: center;
+  }
 
-</html>
+  .intro-text{
+      width: 70%;
+      padding-top: 30px;
+  }
+
+  .intro-text p{
+      padding: 20px 0;
+  }
+
+  .intro-text h1{
+      font-size: 21px;
+      line-height: 35px;
+  }
+
+  .intro-img{
+      width: 70%;
+      padding-top: 20px;
+  }
+
+  .intro-container{
+      padding-bottom: 100px;
+  }
+
+  .features-container{
+      display: flex;
+      flex-direction: column;
+      padding: 20px 50px;
+  }
+
+  .feature-text p{
+      padding: 0;
+  }
+
+  .prod-container{
+      flex-direction: column;
+      padding: 80px 0;
+  }
+
+  .prod-text{
+      padding: 20px;
+  }
+
+  .prod-text h1{
+      font-size: 20px;
+  }
+
+  .prod-img-container{
+      width: 70%;
+      padding-bottom: 15px;
+  }
+
+  .prod-img-container img{
+      width: 100%;
+      height: 100%;
+  }
+
+  .see-more {
+      width: 48%;
+  }
+  #team{
+      background-position: 40px 15px;
+  }
+
+  .team-quotes{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 50px 50px 280px 50px;
+  }
+
+  .form{
+      padding: 20px;
+      width: 80%;
+      top: -90px;
+  }
+
+  .text-started h1{
+      font-size: 20px;
+  }
+
+  .footer-container{
+      padding: 60px;
+  }
+
+  .footer-text{
+      grid-gap: 50px;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .first p{
+      flex: 1;
+      padding: 0 10px;
+  }
+
+
+  .third{
+      justify-content: flex-start;
+      top: auto;
+      position: relative;
+  }
+
+  .one{
+      padding-bottom: 30px;
+  }
+
+  .fourth{
+      justify-content: center;
+  }
+
+  .email{
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 0;
+  }
+
+  .email input{
+      width: 100%;
+  }
+
+  .email .btn{
+      width: 100%;
+      margin-left: 0;
+      margin-top:20px;
+  }
+
+  .text-started p{
+      padding:0;
+  }
+
+  .err,.success{
+      left: 0;
+  }
+
+}
+
